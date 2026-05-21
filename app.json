@@ -13,7 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take photos of receipts for tax records.",
+        "NSPhotoLibraryUsageDescription": "Choose receipt photos from your library."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -26,14 +30,22 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Scan receipts with the live camera for AI extraction."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose receipt photos from your library.",
+          "cameraPermission": "Take photos of receipts for tax records."
+        }
+      ]
+    ]
   }
 }

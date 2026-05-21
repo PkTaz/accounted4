@@ -1,0 +1,5 @@
+# Supabase local config (optional — used when running `supabase functions serve`)
+project_id = "accounted4"
+
+[functions.extract-receipt]
+verify_jwt = true
